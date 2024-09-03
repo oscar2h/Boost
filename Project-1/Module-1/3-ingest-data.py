@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 from time import time
 
 engine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')
-df_iter = pd.read_csv('nyt.csv', iterator=True, chunksize=100000)
+df_iter = pd.read_csv('data/nyt.csv', iterator=True, chunksize=100000)
 df = pd.read_csv('nyt.csv')
 df.head(n=0).to_sql(name='yellow_taxi_data', con=engine, if_exists='replace')
 
